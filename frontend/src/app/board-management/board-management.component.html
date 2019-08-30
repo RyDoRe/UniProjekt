@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="board-management-toolbar-headline">Projektverwaltung</div>
+    <button class="board-management-toolbar-btn" (click)="addNewBoard()" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-list class="board-management-list default-background">
+    <ng-container *ngFor="let boardTemplate of boardTemplates">
+      <mat-list-item class="board-management-list-item">
+        <div class="board-management-list-item-headline">
+          {{boardTemplate.name}}
+        </div>
+        <button class="board-management-list-item-btn" mat-icon-button (click)="editBoard(boardTemplate)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="board-management-list-item-btn" mat-icon-button (click)="removeBoard(boardTemplate)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</ion-content>

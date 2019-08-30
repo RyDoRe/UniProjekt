@@ -1,0 +1,60 @@
+.task-board-slider-list-item{
+    height: 80px !important;
+    width: 100%;
+}
+.task-board-slider-list-item-wrapper{
+    height: 100%;
+    width: 100%;
+}
+
+.task-board-slider-list-item-content{
+    height: 60px;
+    width: 100%;
+}
+
+.task-board-slider-list-item-details{
+    height: 100%;
+    text-align: center;
+    width: calc(100% - 120px);
+    text-align: left;
+    float: left;
+}
+
+.task-board-slider-list-item-btn{
+    height: 60px;
+    width: 40px;
+    line-height: 60px;
+    float: right;
+}
+.task-board-slider-list-item-headline{
+    font-size: 14px;
+    text-align: center;
+}
+
+.task-board-slider-list-item-details-user{
+    line-height: 30px;
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+}
+
+.task-board-slider-list-item-details-user-icon{
+    height: 30px;
+    width: 20px;
+    line-height: 30px;
+    font-size: 20px;
+    float: left;
+}
+.task-board-slider-list-item-details-user-name{
+    line-height: 30px;
+    float: left;
+    max-width: calc(100% - 20px);
+}
+
+.task-board-slider-list-item-details-description{    
+    height: 30px;
+    overflow: hidden;
+    line-height: 30px;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}

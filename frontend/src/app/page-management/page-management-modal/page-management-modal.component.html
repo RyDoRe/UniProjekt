@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="page-management-toolbar-headline">Projekt-Seite bearbeiten</div>
+    <button class="page-management-toolbar-btn" (click)="dismiss(false)" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-management-wrapper">
+    <form [formGroup]="pageNameGroup">
+      <mat-form-field class="page-management-form-field">
+        <input id="name" autocomplete="off" matInput placeholder="Projekt-Seiten-Name" formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="page-management-form-field">
+        <input id="state" autocomplete="off" matInput placeholder="Projekt-Seiten-State" formControlName="state">
+      </mat-form-field>
+    </form>
+
+    <button id="page-management-btn" [disabled]="!pageNameGroup.valid" (click)="dismiss(true)" mat-button>
+        {{(addPage)?'Projekt-Seite anlegen':'Änderungen speichern'}}
+    </button>
+  </div>
+</ion-content>
+

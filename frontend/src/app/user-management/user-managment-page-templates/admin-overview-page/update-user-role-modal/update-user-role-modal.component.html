@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+      <div class="edit-userRole-toolbar-headline">Nutzerrolle anpassen</div>
+      <button class="add-board-toolbar-btn" (click)="dismiss(false)" mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="edit-userRole-wrapper">
+        <mat-form-field class="edit-userRole-form-field">
+          <mat-select [(value)]="user.userRole">
+              <mat-option *ngFor="let userrole of userRoles" [value]="userrole" >
+                  {{userrole}}
+                </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <button id="edit-userRole-btn" (click)="dismiss(true)" mat-button>
+          Anlegen
+      </button>
+    </div>
+  </ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="page-management-toolbar-headline">Projekt-Seiten-Verwaltung</div>
+    <button class="page-management-toolbar-btn" (click)="handlePageAction(true)" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <mat-list class="page-management-list default-background">
+    <ng-container *ngFor="let page of pages">
+      <mat-list-item class="page-management-list-item">
+        <div class="page-management-list-item-headline"
+          [ngStyle]="{'width': (page.default)?'calc(100% - 40px)':'calc(100% - 80px)'}">
+          {{page.name}}
+        </div>
+        <button class="page-management-list-item-btn" mat-icon-button (click)="handlePageAction(false,page)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="page-management-list-item-btn" *ngIf="!page.default" mat-icon-button (click)="removePage(page)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+
+    <div class="register-user-toolbar-headline">Registrieren</div>
+    <button class="register-user-toolbar-btn" (click)="dismiss(false)" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register-user-wrapper">
+    <form [formGroup]="registerUserGroup">
+
+      <mat-form-field class="register-user-form-field">
+        <input id="username" autocomplete="off" matInput placeholder="Nutzername" formControlName="username">
+      </mat-form-field>
+
+
+      <mat-form-field class="register-user-form-field">
+        <input id="password" autocomplete="off" type="password" matInput placeholder="Passwort" formControlName="password">
+      </mat-form-field>
+
+      <mat-form-field class="register-user-form-field">
+        <input id="passwordConfirmed" autocomplete="off" type="password" matInput placeholder="Passwort bestätigen" formControlName="passwordConfirmed">
+      </mat-form-field>
+
+    </form>
+
+    <button id="register-user-btn" [disabled]="getValidState()" (click)="dismiss(true)" mat-button>
+        Registrieren
+    </button>
+  </div>
+</ion-content>

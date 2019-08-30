@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="edit-board-toolbar-headline">Projekt bearbeiten</div>
+    <button class="edit-board-toolbar-btn" (click)="dismiss(false)" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="default-background">
+    <div class="edit-board-wrapper default-background">
+      <form [formGroup]="boardNameGroup">
+        <mat-form-field class="edit-board-form-field">
+          <input id="name" autocomplete="off" matInput placeholder="Projektname" [value]="boardTemplate.name"
+            formControlName="name">
+        </mat-form-field>
+      </form>
+      <span>Projekt-Seiten</span>
+      <div cdkDropList class="example-list" (cdkDropListDropped)="changeOrderOfPages($event)">
+        <div class="example-box" *ngFor="let boardPage of boardTemplate.pages" cdkDrag>{{boardPage.name}}</div>
+      </div>
+      <button class="edit-board-btn" [disabled]="customPages.length === 0" mat-icon-button mat-icon-button
+        [matMenuTriggerFor]="customPageMenu">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <button class="edit-board-btn" [disabled]="getDisabledState()" (click)="dismiss(true)" mat-button>
+      Änderungen speichern
+    </button>
+  </div>
+</ion-content>
+
+<mat-menu #customPageMenu="matMenu">
+  <button mat-menu-item class="task-board-toolbar-btn" *ngFor="let customPage of customPages"
+    (click)="addPageToBoard(customPage)">
+    <mat-icon>layers</mat-icon>
+    <span>{{customPage.name}}</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,52 @@
+.login-wrapper {
+  padding: 0;
+}
+
+.fake-toolbar-wrapper {
+  height: 0px;
+}
+
+.login-background {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, #3d2f44 20%, grey 120%);
+}
+
+.login-panel {
+  width: 250px;
+  height: fit-content;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: auto;
+}
+
+.login-panel-input {
+  line-height: 25px;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+.login-panel-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+    background: black !important ;
+
+} 
+:host ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-underline .mat-form-field-ripple {
+    background: #f44336  !important ;
+
+} 
+:host ::ng-deep .mat-form-field-wrapper span {
+  color: black !important ;
+}

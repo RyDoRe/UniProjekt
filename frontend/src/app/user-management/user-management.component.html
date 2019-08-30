@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Nutzerverwaltung
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="user-managment-container default-background">
+    <ion-slides #userManagementPageSlider pager="false" class="user-managment-slider"
+      (ionSlideTouchEnd)="handleSliderPageChange($event)">
+      <ion-slide class="user-managment-slider-page" *ngFor="let sliderPage of userManagementPages">
+        <ng-container [ngSwitch]="sliderPage.type">
+          <ng-container *ngSwitchCase="'USER'">
+            <app-user-overview-page [user]="user" (saveChanges)="updateUser($event)"></app-user-overview-page>
+          </ng-container>
+          <ng-container *ngSwitchCase="'ADMIN'">
+            <app-admin-overview-page [users]="userList" (removeUser)="handleRemoveUser($event)"
+              (resetUserPassword)="handleResetUserPassword($event)" (saveUserChanges)="handleSaveUserChanges($event)">
+            </app-admin-overview-page>
+          </ng-container>
+        </ng-container>
+      </ion-slide>
+    </ion-slides>
+    <div class="user-managment-navigation-area" *ngIf="user.userRole === 'ADMIN'">
+
+      <button class="user-managment-navigation-btn" [class.active]="currentPage.id === 'user-page'" mat-button
+        (click)="changePage('user-page')">
+        Nutzer-Ansicht
+      </button>
+
+      <button class="user-managment-navigation-btn" [class.active]="currentPage.id === 'admin-page'" mat-button
+        (click)="changePage('admin-page')">
+        Admin-Ansicht
+      </button>
+    </div>
+  </div>
+</ion-content>

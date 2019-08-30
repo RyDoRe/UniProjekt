@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="add-board-toolbar-headline">Neues Projekt anlegen</div>
+    <button class="add-board-toolbar-btn" (click)="dismiss(false)" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="add-board-wrapper">
+    <form [formGroup]="boardNameGroup">
+
+      <mat-form-field class="add-board-form-field">
+        <input id="name" autocomplete="off" matInput placeholder="Projektname" formControlName="name">
+      </mat-form-field>
+
+    </form>
+
+    <button id="add-board-btn" [disabled]="!boardNameGroup.valid" (click)="dismiss(true)" mat-button>
+       Projekt anlegen
+    </button>
+  </div>
+</ion-content>

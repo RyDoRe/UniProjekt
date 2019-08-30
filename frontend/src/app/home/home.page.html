@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Aufgaben-Übersicht
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="home-wrapper default-background">
+        <app-task-list [taskItems]="personalTasks" [enableActions]="false"></app-task-list>
+    </div>
+</ion-content>

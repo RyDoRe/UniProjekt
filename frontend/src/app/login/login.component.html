@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="fake-toolbar-wrapper">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-background">
+    <div class="login-panel">
+      <img src="{{logoPath}}" alt="logo" id="logo">
+      <form class="login-panel-form" [formGroup]="loginGroup">
+        <mat-form-field class="login-panel-form-field">
+          <mat-icon matPrefix>account_circle</mat-icon>
+          <input id="username" autocomplete="off" class="login-panel-input" matInput placeholder="Loginame" formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="login-panel-form-field">
+          <mat-icon matPrefix>https</mat-icon>
+          <input id="password" class="login-panel-input" matInput placeholder="Passwort" formControlName="password"
+            type="password">
+        </mat-form-field>
+      </form>
+      <button id="login-btn" class="login-btn" [disabled]="!loginGroup.valid" (click)="login()" mat-button>
+        Login
+      </button>
+      <button id="register-btn" class="login-btn" (click)="registerUser()" mat-button>
+        Registrieren
+      </button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+.user-managment-slider{
+    height: calc(100% - 40px);
+    width: 100%;
+    padding: 5px;
+}
+
+.user-managment-navigation-area{
+    height: 40px;
+    width: 100%;
+}
+
+.user-managment-navigation-btn{
+    height: 100%;
+    width: 50%;
+    float: left;
+    color: black;
+}
+.user-managment-navigation-btn.active{
+    color: #3d2f44;
+    border-radius: 0;
+    border-top: 2px solid #3d2f44;
+}
+
+.user-managment-slider-page{
+    width: 100%;
+    height: 100%;
+}

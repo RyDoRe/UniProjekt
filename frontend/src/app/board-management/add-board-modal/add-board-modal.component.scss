@@ -1,0 +1,15 @@
+.add-board-toolbar-headline {
+  width: calc(100% - 40px);
+  line-height: 40px;
+  text-align: center;
+  float: left;
+}
+
+.add-board-toolbar-btn {
+  float: right;
+}
+
+#add-board-btn,
+.add-board-form-field {
+  width: 100%;
+}

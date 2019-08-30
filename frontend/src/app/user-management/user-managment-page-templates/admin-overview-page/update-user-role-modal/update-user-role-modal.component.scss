@@ -1,0 +1,17 @@
+.edit-userRole-toolbar-headline {
+  width: calc(100% - 40px);
+  line-height: 40px;
+  text-align: center;
+  float: left;
+}
+
+.edit-userRole-toolbar-btn {
+  float: right;
+}
+
+#edit-userRole-btn,
+.edit-userRole-form-field {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}

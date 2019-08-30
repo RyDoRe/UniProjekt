@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="task-board-toolbar-headline">{{boardTemplate?.name}}</div>
+
+    <button class="task-board-toolbar-btn" mat-icon-button [matMenuTriggerFor]="boardMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <button class="task-board-toolbar-btn" (click)="hanldeTaskAction(true)" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="task-board-content-container default-background">
+    <ng-container *ngIf="boardTemplate && boardTemplate.pages && boardTemplate.pages.length > 0">
+      <ion-slides #taskPageSlider pager="false" [options]="slideOpts" class="task-board-slider"
+        (ionSlideTouchEnd)="handleSliderPageChange($event)">
+        <ion-slide class="task-board-slider-page" *ngFor="let sliderPage of boardTemplate.pages">
+          <div class="task-board-slider-headline">
+            {{sliderPage.name}}
+          </div>
+          <div class="task-board-slider-list-wrapper">
+            <app-task-list [taskItems]="getTasksOfPage(sliderPage.id)" [currentPage]="sliderPage" [pages]="boardTemplate.pages" (changeTaskState)="changeState($event)"
+              (removeTask)="removeTask($event)" (editTask)="hanldeTaskAction(false,$event)"> </app-task-list>
+          </div>
+        </ion-slide>
+      </ion-slides>
+      <div class="task-board-conatiner-actions">
+        <button class="task-board-footer-btn-left" [disabled]="disablePrevBtn" (click)="switchToPage(false)"
+          mat-icon-button>
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button class="task-board-footer-jump-to-btn" (click)="openActionSheet()" mat-button>
+          Jump to Page
+        </button>
+        <button class="task-board-footer-btn-right" [disabled]="disableNextBtn" (click)="switchToPage(true)"
+          mat-icon-button>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+
+    </ng-container>
+  </div>
+</ion-content>
+
+<mat-menu #boardMenu="matMenu">
+  <button mat-menu-item *ngFor="let board of availableBoardTemplates" class="task-board-toolbar-btn"
+    (click)="changeToBoard(board)">
+    <mat-icon>layers</mat-icon>
+    <span>{{board.name}}</span>
+  </button>
+</mat-menu>

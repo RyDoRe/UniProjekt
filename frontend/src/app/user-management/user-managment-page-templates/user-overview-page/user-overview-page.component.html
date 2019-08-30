@@ -1,0 +1,40 @@
+<div class="user-overview-wrapper">
+    <div class="user-overview-headline">
+        Nutzerdaten anpassen
+      </div>
+  <form [formGroup]="nameGroup">
+    <mat-form-field class="user-overview-form-field">
+      <input id="firstname" matInput autocomplete="off" placeholder="Vorname" formControlName="firstname" (change)="handleUnsavedata()">
+    </mat-form-field>
+
+
+    <mat-form-field class="user-overview-form-field">
+      <input id="lastname" matInput autocomplete="off" placeholder="Nachname" formControlName="lastname" (change)="handleUnsavedata()">
+    </mat-form-field>
+
+  </form>
+  <form [formGroup]="changePasswordGroup">
+
+    <mat-form-field class="user-overview-form-field">
+      <input id="oldPassword" autocomplete="off" type="password" matInput placeholder="Aktuelles Passwort"
+        formControlName="oldPassword">
+    </mat-form-field>
+
+    <mat-form-field class="user-overview-form-field">
+      <input id="newPassword" autocomplete="off" type="password" matInput placeholder="Neues Passwort"
+        formControlName="newPassword">
+    </mat-form-field>
+
+    <mat-form-field class="user-overview-form-field">
+      <input id="newPasswordConfirmed" autocomplete="off" type="password" matInput placeholder="Passwort bestätigen"
+        formControlName="newPasswordConfirmed">
+    </mat-form-field>
+
+  </form>
+
+ 
+  <button id="update-user-btn" [disabled]="getDisabledState()" (click)="updateUser()" mat-button>
+    Änderungen speichern
+  </button>
+
+</div>

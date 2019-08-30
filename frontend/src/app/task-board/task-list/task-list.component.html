@@ -1,0 +1,41 @@
+<mat-list role="list" class="task-board-slider-list">
+  <ng-container *ngFor="let taskItem of taskItems">
+    <mat-list-item class="task-board-slider-list-item" role="listitem">
+      <div class="task-board-slider-list-item-wrapper">
+        <div class="task-board-slider-list-item-headline">
+          {{taskItem.name}}
+        </div>
+        <div class="task-board-slider-list-item-content">
+          <div class="task-board-slider-list-item-details">
+            <div class="task-board-slider-list-item-details-description">
+              {{taskItem.description}}
+            </div>
+            <div class="task-board-slider-list-item-details-user">
+              <mat-icon class="task-board-slider-list-item-details-user-icon">person</mat-icon>
+              <div class="task-board-slider-list-item-details-user-name">
+                {{(taskItem.assignUser)?taskItem.assignUser.username:'Kein Nutzer zugewiesen'}}</div>
+            </div>
+          </div>
+          <button *ngIf="enableActions" class="task-board-slider-list-item-btn" mat-icon-button (click)="removeTask.emit(taskItem)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button *ngIf="enableActions" class="task-board-slider-list-item-btn" mat-icon-button (click)="editTask.emit(taskItem)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button *ngIf="enableActions" class="task-board-slider-list-item-btn" mat-icon-button (click)="setToChangeTask(taskItem)"
+            [matMenuTriggerFor]="PageMenu">
+            <mat-icon>trending_flat</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>
+
+<mat-menu #PageMenu="matMenu">
+  <button mat-menu-item *ngFor="let page of pages" (click)="changeState(page)">
+    <mat-icon>layers</mat-icon>
+    <span>{{page.name}}</span>
+  </button>
+</mat-menu>

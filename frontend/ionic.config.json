@@ -1,0 +1,7 @@
+{
+  "name": "taskmen",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,35 @@
+<div class="admin-overview-wrapper">
+  <div class="admin-overview-headline">
+    Nutzer verwalten
+  </div>
+
+  <mat-list class="admin-overview-user-list">
+    <ng-container *ngFor="let user of users">
+      <mat-list-item class="admin-overview-user-list-item">
+        <div class="admin-overview-user-list-item-wrapper">
+          <div class="admin-overview-user-list-item-headline">
+            {{user.username}}
+          </div>
+          <!--<button class="admin-overview-user-list-item-btn" mat-icon-button (click)="resetUserPassword.emit(user)">
+            <mat-icon>reply</mat-icon>
+          </button> -->
+
+          <button class="admin-overview-user-list-item-btn" mat-icon-button (click)="removeUser.emit(user)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button class="admin-overview-user-list-item-btn" mat-icon-button (click)="editUserRole(user)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+
+
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+
+  <!-- <button id="update-user-btn" [disabled]="!unSaveData" (click)="updateUsers()" mat-button>
+    Änderungen speichern
+  </button>-->
+</div>

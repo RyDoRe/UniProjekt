@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+
+    <div class="new-task-toolbar-headline">Neue Aufgabe</div>
+    <button class="new-task-toolbar-btn" (click)="dismissOverCancel()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="new-task-wrapper default-background">
+    <form [formGroup]="nameGroup">
+      <mat-form-field class="new-task-form-field">
+        <input id="taskName" matInput placeholder="Name" formControlName="taskName">
+      </mat-form-field>
+
+
+      <mat-form-field class="new-task-form-field">
+        <input id="taskDescription" matInput placeholder="Beschreibung" formControlName="taskDescription">
+      </mat-form-field>
+
+      <mat-form-field class="new-task-form-field">
+        <mat-label>Bearbeiter</mat-label>
+        <mat-select placeholder="Bearbeiter" formControlName="taskOperator">
+          <mat-option *ngFor="let user of users" [value]="user">{{user.username}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </form>
+
+    <form [formGroup]="dateGroup">
+      <mat-form-field class="new-task-form-field">
+        <input matInput [matDatepicker]="startDate" placeholder="Startdatum" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="new-task-form-field">
+        <input matInput [matDatepicker]="endDate" placeholder="Enddatum" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+    </form>
+
+    <button id="add-task-btn" [disabled]="!dateGroup.valid || !nameGroup.valid" (click)="dismiss()" mat-button>
+      {{(task)?'Änderungen speichern':'Aufgabe erstellen'}}
+    </button>
+  </div>
+</ion-content>
